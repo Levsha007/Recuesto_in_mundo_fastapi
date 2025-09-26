@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Immergiti in questo mondo</title>
+    <link rel="stylesheet" type="text/css" href="/static/css/dayving.css">
+
+    <!--
+    <script src="node_modules/gsap/dist/gsap.min.js" defer></script>
+    <script src="libs/gsap/ScrollSmoother.min.js" defer></script>
+    <script src="node_modules/gsap/dist/ScrollTrigger.min.js" defer></script>
+    -->
+    
+    <script src="/static/js/dayving.js" defer></script>
+</head>
+<body>
+    <div>
+
+        <header>    
+            <div class="layers">
+                <div class="layer header_fon"></div>
+
+                <div class="layer_header">
+                    
+                    <div class="later_header_naming">
+                        <div class="logo">
+                            <a href="/">
+                                <img class="logo-img" src="/static/img/logo/logo_white.png" alt="Здесь должен быть логотип">
+                            </a>
+                        </div>
+                        <div class="layers_title">
+                            <br>
+                            <p>Immergiti in questo </p>
+                            mondo
+                        </div>
+                    </div>
+
+                    <nav>
+                        <div class="nav-but aquariums dropdown">
+                            <button class="dropdown-button glass" onclick="window.location.href='/aquariums';">Океанариумы</button>
+                            <div class="dropdown-content ">
+                                <a href="/aquariums#aqm_1">Ripley's Aquarium Of Canada, Канада</a>
+                                <a href="/aquariums#aqm_2">Монтерей-Бей, США</a>
+                                <a href="/aquariums#aqm_3">Океанариум в Сиднее, Австралия</a>
+                                <a href="/aquariums#aqm_4">Океанариум Джорджии, США</a>
+                            </div>
+                        </div>
+                        <div class="nav-but dayving dropdown">
+                            <button class="dropdown-button glass" onclick="window.location.href='/dayving';">Дайвинг</button>
+                            <div class="dropdown-content">
+                                <a href="/dayving#dyng_1">Большой Барьерный Риф</a>
+                                <a href="/dayving#dyng_2">Голубая дыра</a>
+                                <a href="/dayving#dyng_3">Корраловый риф Туббатаха</a>
+                            </div>
+                        </div>
+                        <div class="nav-but contacts dropdown">
+                            <button class="dropdown-button glass">Заказы</button>
+                            <div class="dropdown-content">
+                                <a href="/form_dvg#form_dvg">Разовый дайвинг</a>
+                                <a href="/form_hotel_brn#form_hotel_brn">Бронь отелей</a>
+                                <a href="/form_dvg_abt#form_dvg_abt">Абонемент</a>
+                            </div>
+                        </div>
+                        <div class="nav-but login-reg">
+                            <button class="glass"  onclick="window.location.href='/login';">Вход/Регистрация</button>
+                        </div>
+                    </nav>
+                </div>
+            </div>
+
+        </header>
+        
+        <main>
+            <div class="layers">
+
+                <div id="dyng_1" class="main_stories glass">
+                    <div class="main_element">
+                        <section class="wrapper">
+                            <div class="container">
+
+                                <input type="radio" name="slide" id="c11" checked>
+                                <label for="c11" class="card">
+                                    <div class="row">
+                                        <div class="icon glass">1</div>
+                                        <div class="description">
+                                            <div style="border-radius: 20%;">
+                                                <h4>Дайверы в подводном мире</h4>
+                                                <p>Дайверы наслаждаются удивительным 
+                                                    подводным миром Большого Барьерного 
+                                                    рифа, погружаясь в его яркие 
+                                                    кораллы и морскую жизнь.</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </label>
+
+                                <input type="radio" name="slide" id="c12" checked>
+                                <label for="c12" class="card">
+                                    <div class="row">
+                                        <div class="icon glass">2</div>
+                                        <div class="description">
+                                            <div style="border-radius: 20%;">
+                                                <h4>Яркие обитатели рифа</h4>
+                                                <p>Яркие и разнообразные рыбки плавают 
+                                                    среди кораллов, создавая 
+                                                    завораживающее подводное шоу.</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </label>
+
+                                <input type="radio" name="slide" id="c13" checked>
+                                <label for="c13" class="card">
+                                    <div class="row">
+                                        <div class="icon glass">3</div>
+                                        <div class="description">
+                                            <div style="border-radius: 20%;">
+                                                <h4>Панорама рифа</h4>
+                                                <p>Панорамный вид на Большой 
+                                                    Барьерный риф, демонстрирующий 
+                                                    его невероятную протяженность и 
+                                                    красивую голубую воду.</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </label>
+                            </div>
+                        </section>
+                    </div>
+                    <div class="main_element">
+                        <div class="main_heading_style main_text_paregraph">
+                            <h3>Большой Барьерный риф (BB Reef)</h3>
+                        </div>
+                        <div class="main_heading_style main_text_information">
+                            <p>
+                                Местоположение: Восточное побережье Австралии, Коралловое море.
+
+                            </p>
+                            <p>
+                                Интересно: Самый крупный коралловый риф в мире, протяжённостью 
+                                более 2300 км. Является объектом Всемирного наследия ЮНЕСКО 
+                                с кристально чистыми водами и удивительным биоразнообразием.
+                            </p>
+                            <p>
+                                Живность: Здесь обитают рыбы, морские черепахи, акулы, скаты, 
+                                манты и китовые дельфины. Можно встретить редкие виды, такие 
+                                как гигантские моллюски и рыбы-ангелы.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="dyng_2" class="main_stories glass">
+                    <div class="main_element">
+                        <div class="main_heading_style main_text_paregraph">
+                            <h3>Голубая дыра (Blue Hole)</h3>
+                        </div>
+                        <div class="main_heading_style main_text_information">
+                            <p>
+                                Местоположение: Центральное побережье Белиза, у Лайтхаус-Рифа.
+                            </p>
+                            <p>
+                                Интересно: Подводная воронка диаметром около 300 метров 
+                                и глубиной до 125 метров, знаменитая своим глубоким 
+                                синим цветом и уникальной геологией.
+                            </p>
+                            <p>
+                                Живность: Здесь можно увидеть кораллы и рифовых рыб, 
+                                а также хищных акул, включая карибских рифовых и 
+                                акул-молотов. Пещеры с сталактитами и сталагмитами 
+                                создают особую атмосферу.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="main_element">
+                        <section class="wrapper">
+                            <div class="container">
+
+                                <input type="radio" name="slide" id="c21" checked>
+                                <label for="c21" class="card">
+                                    <div class="row">
+                                        <div class="icon glass">1</div>
+                                        <div class="description">
+                                            <div style="border-radius: 20%;">
+                                                <h4>Загадочная глубина</h4>
+                                                <p>Загадочная подводная глубина Голубой дыры, 
+                                                    открывающая вид на её уникальное 
+                                                    геологическое формирование.</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </label>
+
+                                <input type="radio" name="slide" id="c22" checked>
+                                <label for="c22" class="card">
+                                    <div class="row">
+                                        <div class="icon glass">2</div>
+                                        <div class="description">
+                                            <div style="border-radius: 20%;">
+                                                <h4>Дайверы в аквапарке</h4>
+                                                <p>Группа дайверов исследует подводный мир, 
+                                                    наслаждаясь его мистической атмосферой 
+                                                    и яркими пейзажами.</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </label>
+
+                                <input type="radio" name="slide" id="c23" checked>
+                                <label for="c23" class="card">
+                                    <div class="row">
+                                        <div class="icon glass">3</div>
+                                        <div class="description">
+                                            <div style="border-radius: 20%;">
+                                                <h4>Круглый контур</h4>
+                                                <p>Вид сверху на Голубую дыру, 
+                                                    демонстрирующий её характерный 
+                                                    круглый контур на фоне прозрачных вод.</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </label>
+
+                                <input type="radio" name="slide" id="c24" checked>
+                                <label for="c24" class="card">
+                                    <div class="row">
+                                        <div class="icon glass">4</div>
+                                        <div class="description">
+                                            <div style="border-radius: 20%;">
+                                                <h4>Подводная карта</h4>
+                                                <p>Подводная карта Голубой дыры, 
+                                                    показывающая интересные 
+                                                    маршруты для дайвинга и 
+                                                    уникальные подводные особенности.</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </label>
+                            </div>
+                        </section>
+                    </div>
+                </div>
+
+                <div id="dyng_3" class="main_stories glass">
+                    <div class="main_element">
+                        <section class="wrapper">
+                            <div class="container">
+                                <input type="radio" name="slide" id="c31" checked>
+                                <label for="c31" class="card">
+                                    <div class="row">
+                                        <div class="icon glass">1</div>
+                                        <div class="description">
+                                            <div style="border-radius: 20%;">
+                                                <h4>Погружение в Туббатаха</h4>
+                                                <p>Дайверы погружаются в великолепные 
+                                                    воды Туббатаха, исследуя его 
+                                                    экзотические обитатели и кораллы.</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </label>
+
+                                <input type="radio" name="slide" id="c32" checked>
+                                <label for="c32" class="card">
+                                    <div class="row">
+                                        <div class="icon glass">2</div>
+                                        <div class="description">
+                                            <div style="border-radius: 20%;">
+                                                <h4>Прятки среди водорослей</h4>
+                                                <p>Красочные рыбки прячутся среди водорослей, 
+                                                    создавая удивительный контраст и 
+                                                    живописные подводные сцены.</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </label>
+
+                                <input type="radio" name="slide" id="c33" checked>
+                                <label for="c33" class="card">
+                                    <div class="row">
+                                        <div class="icon glass">3</div>
+                                        <div class="description">
+                                            <div style="border-radius: 20%;">
+                                                <h4>Косяк рыб в действии</h4>
+                                                <p>Огромный косяк рыб плавает 
+                                                    рядом с дайверами, создавая 
+                                                    незабываемое зрелище и 
+                                                    ощущение единства с природой.</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </label>
+
+                            </div>
+                        </section>
+                    </div>
+                    <div class="main_element">
+                        <div class="main_heading_style main_text_paregraph">
+                            <h3>Коралловый риф Туббатаха (Tubbataha Reef), Филиппины</h3>
+                        </div>
+                        <div class="main_heading_style main_text_information">
+                            <p>
+                                Местоположение: В Сулу-Си, 150 км к юго-востоку от Палавана.
+                            </p>
+                            <p>
+                                Интересно: Морской парк, состоящий из двух больших атоллов 
+                                и одного маленького рифа, считается одним из самых богатых 
+                                морских экосистем на планете. Дайвинг доступен с марта по июнь.
+                            </p>
+                            <p>
+                                Живность: Более 600 видов рыб, 360 видов кораллов, акулы, 
+                                черепахи, дельфины и китовые акулы. Это место также 
+                                привлекает редкими видами птиц.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </main>
+
+        <footer>
+            <div class="layers_footer">
+                <div class="copy">© Immergiti in questo mondo</div>
+            </div>
+        </footer>
+    
+    </div>
+
+</body>
+</html>

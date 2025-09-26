@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Бронирования отелей</title>
+</head>
+<body>
+    <h1>Бронирования отелей</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Имя</th>
+                <th>Email</th>
+                <th>Телефон</th>
+                <th>Дата заезда</th>
+                <th>Дата выезда</th>
+                <th>Тип номера</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Цикл для отображения всех бронирований -->
+            {% for booking in bookings %}
+            <tr>
+                <td>{{ booking.id }}</td>
+                <td>{{ booking.name }}</td>
+                <td>{{ booking.email }}</td>
+                <td>{{ booking.phone }}</td>
+                <td>{{ booking.checkin }}</td>
+                <td>{{ booking.checkout }}</td>
+                <td>{{ booking.room }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>

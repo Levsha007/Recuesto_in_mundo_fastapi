@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Immergiti in questo mondo</title>
+    <link rel="stylesheet" type="text/css" href="/static/css/aquariums.css">
+
+    <!--
+    <script src="node_modules/gsap/dist/gsap.min.js" defer></script>
+    <script src="libs/gsap/ScrollSmoother.min.js" defer></script>
+    <script src="node_modules/gsap/dist/ScrollTrigger.min.js" defer></script>
+    -->
+    
+    <script src="/static/js/aquariums.js" defer></script>
+</head>
+<body>
+    <div>
+
+        <header>    
+            <div class="layers">
+                <div class="layer header_fon"></div>
+
+                <div class="layer_header">
+                    
+                    <div class="later_header_naming">
+                        <div class="logo">
+                            <a href="/">
+                                <img class="logo-img" src="/static/img/logo/logo_white.png" alt="Здесь должен быть логотип">
+                            </a>
+                        </div>
+                        <div class="layers_title">
+                            <br>
+                            <p>Immergiti in questo </p>
+                            mondo
+                        </div>
+                    </div>
+
+                    <nav>
+                        <div class="nav-but aquariums dropdown">
+                            <button class="dropdown-button glass" onclick="window.location.href='/aquariums';">Океанариумы</button>
+                            <div class="dropdown-content ">
+                                <a href="/aquariums#aqm_1">Ripley's Aquarium Of Canada, Канада</a>
+                                <a href="/aquariums#aqm_2">Монтерей-Бей, США</a>
+                                <a href="/aquariums#aqm_3">Океанариум в Сиднее, Австралия</a>
+                                <a href="/aquariums#aqm_4">Океанариум Джорджии, США</a>
+                            </div>
+                        </div>
+                        <div class="nav-but dayving dropdown">
+                            <button class="dropdown-button glass" onclick="window.location.href='/dayving';">Дайвинг</button>
+                            <div class="dropdown-content">
+                                <a href="/dayving#dyng_1">Большой Барьерный Риф</a>
+                                <a href="/dayving#dyng_2">Голубая дыра</a>
+                                <a href="/dayving#dyng_3">Корраловый риф Туббатаха</a>
+                            </div>
+                        </div>
+                        <div class="nav-but contacts dropdown">
+                            <button class="dropdown-button glass">Заказы</button>
+                            <div class="dropdown-content">
+                                <a href="/form_dvg#form_dvg">Разовый дайвинг</a>
+                                <a href="/form_hotel_brn#form_hotel_brn">Бронь отелей</a>
+                                <a href="/form_dvg_abt#form_dvg_abt">Абонемент</a>
+                            </div>
+                        </div>
+                        <div class="nav-but login-reg">
+                            <button class="glass"  onclick="window.location.href='/login';">Вход/Регистрация</button>
+                        </div>
+                    </nav>
+                </div>
+            </div>
+
+        </header>
+        
+        <main>
+            <div class="layers">
+
+                <div id="aqm_1" class="main_stories glass">
+                    <div class="main_element">
+                        <section class="container">
+                            <div class="slider-wrapper">
+                                <div class="slider">
+                                    <img id="slide1" src="/static/img/aquariums/Ripley's Aquarium Of Canada, Канада/Ripleys-Aquarium.jpeg" alt="Image 1">
+                                    <img id="slide2" src="/static/img/aquariums/Ripley's Aquarium Of Canada, Канада/orig.jpeg" alt="Image 2">
+                                    <img id="slide3" src="/static/img/aquariums/Ripley's Aquarium Of Canada, Канада/Acean_canada.jpg" alt="Image 3">
+                                </div>
+                                <div class="slider-nav">
+                                    <a href="#slide1" onclick="scrollToCenter('slide1')"></a>
+                                    <a href="#slide2" onclick="scrollToCenter('slide2')"></a>
+                                    <a href="#slide3" onclick="scrollToCenter('slide3')"></a>
+                                </div>
+                            </div>
+                        </section>
+                        
+                    </div>
+                    <div class="main_element">
+                        <div class="main_heading_style main_text_paregraph">
+                            <h3>Ripley's Aquarium Of Canada, Канада</h3>
+                        </div>
+                        <div class="main_heading_style main_text_information">
+                            <p>
+                                Расположен в Торонто, этот аквариум славится 
+                                своим подводным туннелем с движущейся дорожкой, 
+                                предлагающим панорамные виды на экзотических 
+                                морских существ. Он также проводит образовательные 
+                                программы и интерактивные выставки для посетителей 
+                                всех возрастов.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="aqm_2" class="main_stories glass">
+                    <div class="main_element">
+                        <div class="main_heading_style main_text_paregraph">
+                            <h3>Монтерей-Бей, США</h3>
+                        </div>
+                        <div class="main_heading_style main_text_information">
+                            Один из самых известных аквариумов в мире, находится 
+                            в Калифорнии. Специализируется на исследовании и 
+                            сохранении морской экосистемы залива Монтерей. Его 
+                            уникальные экспозиции включают гигантские водорослевые 
+                            леса и открытые бассейны с морскими животными.
+                        </div>
+                    </div>
+                    <div class="main_element">
+                        <section class="container">
+                            <div class="slider-wrapper">
+                                <div class="slider">
+                                    <img id="slide4" src="/static/img/aquariums/Монтерей-Бей, США/MontereyBayAquariumBackview.jpg" alt="Image 1">
+                                    <img id="slide5" src="/static/img/aquariums/Монтерей-Бей, США/montb_1.jpg" alt="Image 2">
+                                    <img id="slide6" src="/static/img/aquariums/Монтерей-Бей, США/montb_2.png" alt="Image 3">
+                                </div>
+                                <div class="slider-nav">
+                                    <a href="#slide4" onclick="scrollToCenter('slide4')"></a>
+                                    <a href="#slide5" onclick="scrollToCenter('slide5')"></a>
+                                    <a href="#slide6" onclick="scrollToCenter('slide6')"></a>
+                                </div>
+                            </div>
+                        </section>
+                        
+                    </div>
+                </div>
+
+                <div id="aqm_3" class="main_stories glass">
+                    <div class="main_element">
+                        <section class="container">
+                            <div class="slider-wrapper">
+                                <div class="slider">
+                                    <img id="slide7" src="/static/img/aquariums/Океанариум в Сиднее, Австралия/10_top_ten.jpg" alt="Image 1">
+                                    <img id="slide8" src="/static/img/aquariums/Океанариум в Сиднее, Австралия/SEA-LIFE-Sydney-Aquarium.jpg" alt="Image 2">
+                                    <img id="slide9" src="/static/img/aquariums/Океанариум в Сиднее, Австралия/VenturSydney.jpg" alt="Image 3">
+                                    <img id="slidefourth" src="/static/img/aquariums/Океанариум в Сиднее, Австралия/Sidnei.png" alt="Image 3">
+                                </div>
+                                <div class="slider-nav">
+                                    <a href="#slide7" onclick="scrollToCenter('slide7')"></a>
+                                    <a href="#slide8" onclick="scrollToCenter('slide8')"></a>
+                                    <a href="#slide9" onclick="scrollToCenter('slide9')"></a>
+                                    <a href="#slidefourth" onclick="scrollToCenter('slidefourth')"></a>
+                                </div>
+                            </div>
+                        </section>
+                        
+                    </div>
+                    <div class="main_element">
+                        <div class="main_heading_style main_text_paregraph">
+                            <h3>Океанариум в Сиднее, Австралия</h3>
+                        </div>
+                        <div class="main_heading_style main_text_information">
+                            Этот океанариум расположен в Дарлинг-Харборе, Сидней, 
+                            и привлекает посетителей разнообразием местной фауны. 
+                            В нем представлена крупнейшая в мире коллекция акул и 
+                            экспозиции, посвященные Великим Барьерному рифу и 
+                            другим уникальным экосистемам Австралии.
+                        </div>
+                    </div>
+                </div>
+
+                <div id="aqm_4" class="main_stories glass">
+                    <div class="main_element">
+                        <div class="main_heading_style main_text_paregraph">
+                            <h3>Океанариум Джорджии, США</h3>
+                        </div>
+                        <div class="main_heading_style main_text_information">
+                            Один из крупнейших аквариумов в мире, расположенный 
+                            в Атланте. Известен своими масштабными выставками и 
+                            огромными резервуарами, где можно увидеть китовых 
+                            акул, белух и множество других редких морских существ.
+                        </div>
+                    </div>
+                    <div class="main_element">
+                        <section class="container">
+                            <div class="slider-wrapper">
+                                <div class="slider">
+                                    <img id="slide10" src="/static/img/aquariums/Океанариум Джорджии, США/Georgia_Aquarium_Jan_2006.jpg" alt="Image 1">
+                                    <img id="slide11" src="/static/img/aquariums/Океанариум Джорджии, США/Jor_Oce.jpg" alt="Image 2">
+                                    <img id="slide12" src="/static/img/aquariums/Океанариум Джорджии, США/Ocean-Voyager.jpg" alt="Image 3">
+                                </div>
+                                <div class="slider-nav">
+                                    <a href="#slide10" onclick="scrollToCenter('slide10')"></a>
+                                    <a href="#slide11" onclick="scrollToCenter('slide11')"></a>
+                                    <a href="#slide12" onclick="scrollToCenter('slide12')"></a>
+                                </div>
+                            </div>
+                        </section> 
+                    </div>
+                </div>
+
+            </div>
+        </main>
+
+        <footer>
+            <div class="layers_footer">
+                <div class="copy">© Immergiti in questo mondo</div>
+            </div>
+        </footer>
+    
+    </div>
+
+</body>
+</html>

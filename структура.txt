@@ -1,0 +1,41 @@
+my_project/
+├── database/
+│   └── __pycache__/
+│       └── database.cpython-39.pyc
+│   └── database.py
+├── libs/
+├── models/
+│   └── __pycache__/
+│       └── __init__.cpython-39.pyc
+│       └── models.cpython-39.pyc
+│   └── __init__.py
+│   └── models.py
+├── node_modules/
+├── parallax_fayles/
+├── samples/
+├── static/
+│   ├── css/
+│   ├── fonts/
+│   ├── img/
+│   ├── js/
+│   └── src/
+├── templates/
+│   ├── aquariums.html
+│   ├── dayvig.html
+│   ├── divebookings.html
+│   ├── dive_subscriptions.html
+│   ├── form_dvg_abt.html
+│   ├── form_dvg.html
+│   ├── form_hotel_brn.html
+│   ├── hotel_bookings.html
+│   ├── index.html
+│   ├── login.html
+│   └── resultPage.html
+├── texts/
+│   ├── ~~Sec есть всё.docx
+│   ├── здесь есть всё.docx
+│   ├── информация про всё.txt
+│   └── deepseek.txt
+├── main.py
+├── package-lock.json
+└── package.json

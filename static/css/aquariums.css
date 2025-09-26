@@ -1,0 +1,324 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --index: calc(1vw + 1vh);
+    /* Основные цвета */
+    --dark_primary_color: #303F9F;
+    --light_primary_color: #C5CAE9;
+    --primary_color: #3F51B5;
+    --text_icons: #ffffe8;
+    --accent_color: #03A9F4;
+    --primary_text: #212121;
+    --secondary_text: #757575;
+    --divider_color: #BDBDBD;
+    --body_color:#001020;;
+    --dark_green: #011a1b;
+    --just_green: #1d4e53;
+    --dark_blue: #04394e;
+    --grad-t: var(--dark_green), var(--dark_green), var(--dark_blue), var(--just_green), var(--just_green), var(--dark_green), var(--dark_green);
+    --rad: 25% 13% 13% 13%; /* Радиус закругления */
+}
+
+html{
+    scroll-behavior: auto;
+}
+
+.glass{
+    background: linear-gradient(135deg, rgba( 255, 255, 255, 0.1),rgba(255, 255, 255, 0.1));
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.layers {
+    display: flex;
+    overflow: hidden;
+    position: relative;
+    flex-direction: column;
+}
+
+.layer {
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    background-size: cover;
+    background-position: center;
+    filter: brightness(0.9);
+}
+
+/* Заголовок */
+.layer_header {
+    display: flex;
+    justify-content: space-between; /* Размещает элементы по краям */
+    text-align: center; /* Добавьте это */
+    position: relative;   
+    align-items: flex-start;
+    height: calc(var(--index) * 24);
+    max-height: 50vh;
+    z-index: 2;
+}
+
+
+.later_header_naming {
+    margin-top: 1%;
+    margin-left: calc(var(--index) * 1.5);
+    display: flex;
+    text-align: center; /* Добавьте это */
+    align-items: center;
+    flex-direction: row;
+}
+
+/* Стиль заголовка */
+.layers_title {
+    text-transform: uppercase;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-weight: 900;
+    font-size: calc(var(--index) * 1.2);
+    letter-spacing: calc(var(--index) / 3.5);
+    font-style: italic;
+    cursor: default; /* Устанавливаем курсор по умолчанию */
+    color: white; /* Цвет текста */
+    text-shadow: 0px  0px 20px #2c2c2b;
+}
+
+.header_fon {
+    background-image: url(/static/img/main-fons/header_fon.png);
+    height: 200%;
+    transform: translateY(-35%); /* Поднимаем изображение на 20%, чтобы закрыть брешь */
+}
+
+/* Логотип */
+.logo {
+    margin-left: 30px;
+    margin-right: 30px;
+}
+
+.logo img {
+    width: calc(var(--index) * 4);
+    height: calc(var(--index) * 4);
+    object-fit: contain;
+}
+
+
+.logo-img {
+    transition: transform 0.3s ease; /* Плавный переход для трансформации */
+}
+
+.logo-img:hover {
+    transform: rotate(-10deg); /* Поворот против часовой стрелки на 5 градусов */
+}
+
+/* Навигация */
+nav {
+    display: flex;
+    align-items: center; /* Центрирует элементы по вертикали */
+    justify-content: flex-end; /* Выравнивает элементы по правому краю */
+    position: relative; /* Убедитесь, что позиционирование не влияет на размещение */
+    gap: 3px;
+    padding: 20px; /* Убедитесь, что паддинг адекватен */
+    margin-top: 2%;
+    margin-right: 1%;
+}
+
+.nav-but button {
+    margin: calc(var(--index) * 0.6);
+    padding: 10px 10px;
+    background-color: rgba(255, 255, 255, 0.3); /* Полупрозрачный фон */
+    color: var(--primary_text); /* Цвет текста */
+    text-shadow: 0px  0px 20px #2c2c2b;
+    border: none;
+    border-radius: var(--rad);
+    font-size: calc(var(--index) * 0.7);
+    font-style: italic;
+    cursor: pointer;
+    transition: background-color 0.3s, opacity 0.3s; /* Добавлено плавное изменение opacity */
+}
+
+.nav-but button:hover {
+    background-color: rgba(255, 255, 255, 0.5); /* Более прозрачный фон при наведении */
+    opacity: 0.9; /* Меняем прозрачность при наведении для эффекта */
+}
+
+/* Dropdown стили */
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-button {
+    border: none;
+    border-radius: var(--rad);
+    text-align: center;
+    transition: background-color 0.3s;
+}
+
+.dropdown-content {
+    max-height: 0; /* Начальная высота — 0 */
+    width: 100%;
+    overflow: hidden;
+    text-align: center;
+    opacity: .8;
+    position: absolute;
+    background-color: rgba(255, 255, 255, 0.3); /* Полупрозрачный фон */
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+    border-radius: var(--rad);
+    transition: max-height 1s ease, opacity 0.35s ease; /* Плавный переход */
+}
+
+.dropdown-content a {
+    color: var(--primary_text); /* Цвет текста */
+
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    border-radius: 5px;
+    margin-bottom: 8px; /* Отступ между пунктами */
+    background-color: rgba(255, 255, 255, 0.3); /* Полупрозрачный фон для каждого элемента */
+}
+
+.dropdown-content a:hover {
+    background-color: #ddd; /* Оставим прежний эффект при наведении */
+}
+
+/* Раскрытие при наведении на dropdown */
+.dropdown:hover .dropdown-content {
+    max-height: 500px; /* Достаточно большое значение высоты для раскрытия */
+    opacity: 1;
+}
+
+main{
+    background: linear-gradient(to bottom, var(--grad-t), var(--grad-t), var(--grad-t), var(--grad-t)); /* от синего к зеленому */
+    padding-top: 3%;
+}
+
+.main_stories{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between; /* Размещает элементы по краям */
+    text-align: center; /* Добавьте это */
+    align-items: center; /* Центрирует элементы по вертикали */
+
+    position: relative;   
+    margin: 1.5rem 5%;
+
+    border-radius: 2rem;
+    z-index: 3;
+}
+
+.main_element{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    align-items: center; /* Центрирует элементы по вертикали */
+    justify-content: center; /* Выравнивает элементы по правому краю */
+    position: relative; /* Убедитесь, что позиционирование не влияет на размещение */
+    margin: 1.85rem;
+}
+
+.main_heading_style{
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-style: inherit;
+    cursor: default; /* Устанавливаем курсор по умолчанию */
+    color: var(--text_icons);
+    opacity: 0.9;
+}
+
+.main_text_paregraph{
+    font-size: calc(var(--index) * .8);
+    letter-spacing: calc(var(--index) / 6);
+    margin-bottom: 3rem;
+}
+
+.main_text_information{
+    font-size: calc(var(--index) * .8);
+    letter-spacing: calc(var(--index) / 30);
+}
+
+.container{
+    padding: 2rem;
+    width: calc(var(--index) * 30);
+}
+
+.slider-wrapper{
+    position: relative;
+    max-width: 48rem;
+    margin: 0 auto;
+    
+}
+
+.slider {
+    display: flex;
+    aspect-ratio: 16 / 9;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+    box-shadow: 0 1.5rem 3rem -0.75rem hsla(0, 0%, 0%, 0.25);
+    border-radius: 1rem;
+    -webkit-overflow-scrolling: touch; /* Smooth scrolling on iOS */
+}
+
+.slider::-webkit-scrollbar {
+    display: none; /* Safari and Chrome */
+}
+
+.slider img{
+    flex: 1 0 100%;
+    object-fit: cover;
+}
+
+.slider-nav{
+    display: flex;
+    column-gap: 1.5rem;
+    position: absolute;
+    bottom: 1.25rem;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 4;
+}
+
+.slider-nav a{
+    width: 1rem;
+    height: 1rem;
+    border-radius: 50%;
+    background-color: #fff;
+    transition: opacity ease 250ms;
+    
+}
+
+.slider-nav a:hover{
+    background-color: #757575;
+    opacity: 0.7;
+}
+
+footer{
+    background: linear-gradient(to bottom, var(--dark_green), var(--just_green), var(--just_green), var(--dark_green)); /* от синего к зеленому */
+    padding:3%;
+}
+
+.layers_footer{
+    position: relative;
+    display: flex;
+    overflow: hidden;
+    flex-direction: column; /* Для расположения содержимого вертикально */
+    z-index: 1;
+}
+
+.copy {
+    position: relative; /* Устанавливаем относительное позиционирование */
+
+    color: var(--text_icons); /* Цвет заголовка, можно изменить */
+    text-transform: uppercase;
+
+    width: auto;
+    text-align: center;
+
+    font-size: calc(var(--index) * 1.1);
+    letter-spacing: calc(var(--index) / 8);
+
+    opacity: 0.7;
+}

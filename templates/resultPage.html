@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Результаты формы</title>
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+        .clear-button {
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Данные из форм</h1>
+    
+    <div id="result">
+        <h2>Статистика</h2>
+        <table id="statisticsTable">
+            <thead>
+                <tr>
+                    <th>Тип</th>
+                    <th>Количество</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Данные будут добавляться сюда -->
+            </tbody>
+        </table>
+
+        <h2>Бронирование номера</h2>
+        <button class="clear-button" onclick="clearLocalStorage('hotelBookingFormData')">Очистить данные бронирований номеров</button>
+        <table id="hotelBookingTable">
+            <thead>
+                <tr>
+                    <th>Имя</th>
+                    <th>Email</th>
+                    <th>Телефон</th>
+                    <th>Дата заезда</th>
+                    <th>Дата выезда</th>
+                    <th>Тип номера</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Данные будут добавляться сюда -->
+            </tbody>
+        </table>
+
+        <h2>Бронирование дайвинга</h2>
+        <button class="clear-button" onclick="clearLocalStorage('diveBookingFormData')">Очистить данные бронирований отелей</button>
+        <table id="diveBookingTable">
+            <thead>
+                <tr>
+                    <th>Имя</th>
+                    <th>Email</th>
+                    <th>Телефон</th>
+                    <th>Дата погружения</th>
+                    <th>Место погружения</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Данные будут добавляться сюда -->
+            </tbody>
+        </table>
+
+        <h2>Оформление абонемента</h2>
+        <button class="clear-button" onclick="clearLocalStorage('diveSubscriptionFormData')">Очистить данные оформлений абонементов</button>
+        <table id="diveSubscriptionTable">
+            <thead>
+                <tr>
+                    <th>Имя</th>
+                    <th>Email</th>
+                    <th>Телефон</th>
+                    <th>Продолжительность абонемента</th>
+                    <th>Дата начала</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Данные будут добавляться сюда -->
+            </tbody>
+        </table>
+    </div>
+
+    <!-- Кнопка для очистки всего localStorage -->
+    <button onclick="clearAllLocalStorage()">Очистить все данные</button>
+
+    <script>
+        // Получаем данные из localStorage
+        const hotelBookingFormData = JSON.parse(localStorage.getItem("hotelBookingFormData")) || [];
+        const diveBookingFormData = JSON.parse(localStorage.getItem("diveBookingFormData")) || [];
+        const diveSubscriptionFormData = JSON.parse(localStorage.getItem("diveSubscriptionFormData")) || [];
+
+        // Функция для добавления данных в таблицу
+        function addDataToTable(tableId, data) {
+            const tableBody = document.querySelector(`#${tableId} tbody`);
+            data.forEach(item => {
+                const row = document.createElement("tr");
+                for (const key in item) {
+                    const cell = document.createElement("td");
+                    cell.textContent = item[key];
+                    row.appendChild(cell);
+                }
+                tableBody.appendChild(row);
+            });
+        }
+
+        // Добавляем данные в таблицы
+        addDataToTable("hotelBookingTable", hotelBookingFormData);
+        addDataToTable("diveBookingTable", diveBookingFormData);
+        addDataToTable("diveSubscriptionTable", diveSubscriptionFormData);
+
+        // Добавляем статистику
+        const statisticsTableBody = document.querySelector("#statisticsTable tbody");
+        const statisticsData = [
+            { type: "Бронирование номера", count: hotelBookingFormData.length },
+            { type: "Бронирование дайвинга", count: diveBookingFormData.length },
+            { type: "Оформление абонемента", count: diveSubscriptionFormData.length }
+        ];
+
+        statisticsData.forEach(item => {
+            const row = document.createElement("tr");
+            const typeCell = document.createElement("td");
+            typeCell.textContent = item.type;
+            const countCell = document.createElement("td");
+            countCell.textContent = item.count;
+            row.appendChild(typeCell);
+            row.appendChild(countCell);
+            statisticsTableBody.appendChild(row);
+        });
+
+        // Функция очистки localStorage для конкретной таблицы
+        function clearLocalStorage(key) {
+            localStorage.removeItem(key);
+            alert(`Данные из localeStorage для "${key}" успешно очищены.`);
+            location.reload(); // Перезагружаем страницу для очистки таблиц
+        }
+
+        // Функция очистки всего localStorage
+        function clearAllLocalStorage() {
+            localStorage.clear();
+            alert("Все данные из localeStorage успешно очищены.");
+            location.reload(); // Перезагружаем страницу для очистки таблиц
+        }
+    </script>
+</body>
+</html>

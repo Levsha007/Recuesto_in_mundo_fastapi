@@ -1,0 +1,83 @@
+Файл database.py в текущем виде уже настроен правильно для работы с SQLite. Если ты используешь SQLite, то ничего менять не нужно. Однако, если ты планируешь использовать другую базу данных (например, PostgreSQL или MySQL), то нужно будет изменить строку подключения к базе данных.
+
+Текущий код database.py:
+python
+Copy
+from sqlalchemy import create_engine
+from sqlalchemy.ext.declarative import declarative_base
+from sqlalchemy.orm import sessionmaker
+
+DATABASE_URL = "sqlite:///./test.db"  # Для SQLite
+# DATABASE_URL = "postgresql://user:password@localhost/dbname"  # Для PostgreSQL
+# DATABASE_URL = "mysql+pymysql://user:password@localhost/dbname"  # Для MySQL
+
+engine = create_engine(DATABASE_URL)
+SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
+Base = declarative_base()
+
+def get_db():
+    db = SessionLocal()
+    try:
+        yield db
+    finally:
+        db.close()
+Что нужно проверить:
+Тип базы данных:
+
+Если ты используешь SQLite, то текущая конфигурация подходит.
+
+Если ты используешь PostgreSQL или MySQL, раскомментируй соответствующую строку и закомментируй строку для SQLite.
+
+Пример для PostgreSQL:
+python
+Copy
+from sqlalchemy import create_engine
+from sqlalchemy.ext.declarative import declarative_base
+from sqlalchemy.orm import sessionmaker
+
+# DATABASE_URL = "sqlite:///./test.db"  # Для SQLite
+DATABASE_URL = "postgresql://user:password@localhost/dbname"  # Для PostgreSQL
+# DATABASE_URL = "mysql+pymysql://user:password@localhost/dbname"  # Для MySQL
+
+engine = create_engine(DATABASE_URL)
+SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
+Base = declarative_base()
+
+def get_db():
+    db = SessionLocal()
+    try:
+        yield db
+    finally:
+        db.close()
+Пример для MySQL:
+python
+Copy
+from sqlalchemy import create_engine
+from sqlalchemy.ext.declarative import declarative_base
+from sqlalchemy.orm import sessionmaker
+
+# DATABASE_URL = "sqlite:///./test.db"  # Для SQLite
+# DATABASE_URL = "postgresql://user:password@localhost/dbname"  # Для PostgreSQL
+DATABASE_URL = "mysql+pymysql://user:password@localhost/dbname"  # Для MySQL
+
+engine = create_engine(DATABASE_URL)
+SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
+Base = declarative_base()
+
+def get_db():
+    db = SessionLocal()
+    try:
+        yield db
+    finally:
+        db.close()
+Заключение:
+Если ты используешь SQLite, то файл database.py в текущем виде уже настроен правильно и ничего менять не нужно. Если ты планируешь использовать другую базу данных (PostgreSQL или MySQL), то нужно будет изменить строку подключения к базе данных.
+
+Проверка:
+Убедитесь, что база данных запущена и доступна.
+
+Проверьте, что строка подключения к базе данных правильная.
+
+Запустите сервер FastAPI и убедитесь, что он корректно подключается к базе данных.
+
+Если все настроено правильно, данные из форм будут сохраняться в соответствующие таблицы базы данных.

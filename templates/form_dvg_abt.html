@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diving subscription</title>
+    <link rel="stylesheet" type="text/css" href="/static/css/forms.css">
+    <script src="/static/js/forms.js" defer></script>
+</head>
+<body>
+    <div>
+        <header>    
+            <div class="layers">
+                <div class="layer header_fon"></div>
+                <div class="layer_header">
+                    <div class="later_header_naming">
+                        <div class="logo">
+                            <a href="/">
+                                <img class="logo-img" src="/static/img/logo/logo_white.png" alt="Здесь должен быть логотип">
+                            </a>
+                        </div>
+                        <div class="layers_title">
+                            <br>
+                            <p>Immergiti in questo </p>
+                            mondo
+                        </div>
+                    </div>
+                    <nav>
+                        <div class="nav-but aquariums dropdown">
+                            <button class="dropdown-button glass" onclick="window.location.href='/aquariums';">Океанариумы</button>
+                            <div class="dropdown-content ">
+                                <a href="/aquariums#aqm_1">Ripley's Aquarium Of Canada, Канада</a>
+                                <a href="/aquariums#aqm_2">Монтерей-Бей, США</a>
+                                <a href="/aquariums#aqm_3">Океанариум в Сиднее, Австралия</a>
+                                <a href="/aquariums#aqm_4">Океанариум Джорджии, США</a>
+                            </div>
+                        </div>
+                        <div class="nav-but dayving dropdown">
+                            <button class="dropdown-button glass" onclick="window.location.href='/dayving';">Дайвинг</button>
+                            <div class="dropdown-content">
+                                <a href="/dayving#dyng_1">Большой Барьерный Риф</a>
+                                <a href="/dayving#dyng_2">Голубая дыра</a>
+                                <a href="/dayving#dyng_3">Корраловый риф Туббатаха</a>
+                            </div>
+                        </div>
+                        <div class="nav-but contacts dropdown">
+                            <button class="dropdown-button glass">Заказы</button>
+                            <div class="dropdown-content">
+                                <a href="/form_dvg#form_dvg">Разовый дайвинг</a>
+                                <a href="/form_hotel_brn#form_hotel_brn">Бронь отелей</a>
+                                <a href="/form_dvg_abt#form_dvg_abt">Абонемент</a>
+                            </div>
+                        </div>
+                        <div class="nav-but login-reg">
+                            <button class="glass"  onclick="window.location.href='/login';">Вход/Регистрация</button>
+                        </div>
+                    </nav>
+                </div>
+            </div>
+        </header>
+        
+        <main id="form_dvg_abt">
+            <div class="container glass" id="container">
+                <h2 style="margin-bottom:4%;">Абонемент на дайвинг</h2>
+                <form id="diveSubscriptionForm" action="/submit_dive_subscription" method="post" onsubmit="return validateForm('diveSubscriptionForm')">
+                    <label for="name">Имя:</label>
+                    <input type="text" id="name" name="name" required>
+                
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" required>
+                
+                    <label for="phone">Телефон:</label>
+                    <input type="tel" id="phone" name="phone" required>
+                
+                    <label for="duration">Продолжительность абонемента:</label>
+                    <select id="duration" name="duration">
+                        <option value="1 месяц">1 месяц</option>
+                        <option value="3 месяца">3 месяца</option>
+                        <option value="6 месяцев">6 месяцев</option>
+                    </select>
+                
+                    <label for="start">Дата начала:</label>
+                    <input type="date" id="start" name="start" required>
+                
+                    <button type="submit">Оформить абонемент</button>
+                </form>
+                <a href="/resultPage" style="display:block; margin-top:20px; font-size: 14px;">Посмотреть результаты</a>            </div>
+        </main>
+
+        <footer>
+            <div class="layers_footer">
+                <div class="copy">© Immergiti in questo mondo</div>
+            </div>
+        </footer> 
+    </div>
+
+    <script>
+        document.getElementById("diveSubscriptionForm").addEventListener("submit", function(event) {
+            event.preventDefault(); // Предотвращаем обычную отправку формы
+            
+            if (!validateForm('diveSubscriptionForm')) {
+                return; // Прерываем выполнение, если валидация не пройдена
+            }
+    
+            // Собираем данные из формы
+            const formData = {
+                name: document.getElementById("name").value,
+                email: document.getElementById("email").value,
+                phone: document.getElementById("phone").value,
+                duration: document.getElementById("duration").value,
+                start: document.getElementById("start").value
+            };
+    
+            // Получаем текущие данные из localStorage
+            const currentData = JSON.parse(localStorage.getItem("diveSubscriptionFormData")) || [];
+    
+            // Добавляем новые данные в массив
+            currentData.push(formData);
+    
+            // Сохраняем обновленные данные в localStorage
+            localStorage.setItem("diveSubscriptionFormData", JSON.stringify(currentData));
+    
+            // Отправляем данные на сервер через AJAX
+            fetch('/submit_dive_subscription', {
+                method: 'POST',
+                body: new FormData(this)
+            })
+            .then(response => response.json())
+            /*.then(data => {
+                if (data.success) {
+                    alert('Форма успешно отправлена!');
+                    // Не очищаем форму, чтобы данные остались
+                } else {
+                    alert('Произошла ошибка при отправке формы.');
+                }
+            })
+            */
+            .catch(error => {
+                console.error('Ошибка при отправке формы:', error);
+            });
+        });
+    </script>
+</body>
+</html>

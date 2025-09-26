@@ -1,0 +1,485 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --index: calc(1vw + 1vh);
+    /* Основные цвета */
+    --dark_primary_color: #303F9F;
+    --light_primary_color: #C5CAE9;
+    --primary_color: #3F51B5;
+    --text_icons: #ffffe8;
+    --accent_color: #03A9F4;
+    --primary_text: #212121;
+    --secondary_text: #757575;
+    --divider_color: #BDBDBD;
+    --body_color:#001020;;
+    --rad: 25% 13% 13% 13%; /* Радиус закругления */
+}
+
+.glass{
+    background: linear-gradient(135deg, rgba( 255, 255, 255, 0.1),rgba(255, 255, 255, 0.1));
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+
+/* Основной контейнер для всех слоёв */
+.layers {
+    height: 100vh;
+    display: flex;
+    overflow: hidden;
+    position: relative;
+    z-index: 2;
+}
+
+/* Заголовок */
+.layer_header {
+    top: 35px;
+    left: 35px;
+    height: 10vh;
+    display: flex;
+    justify-content: space-between; /* Размещает элементы по краям */
+    text-align: center; /* Добавьте это */
+    align-items: center;
+    width: 100%;
+    position: fixed;
+    z-index: 20;
+}
+
+.later_header_naming {
+    margin-top: 1%;
+    display: flex;
+    text-align: center; /* Добавьте это */
+    align-items: center;
+    flex-direction: row;
+}
+
+/* Стиль заголовка */
+.layers_title {
+    text-transform: uppercase;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-weight: 900;
+    font-size: calc(var(--index) * 1.2);
+    letter-spacing: calc(var(--index) / 3.5);
+    font-style: italic;
+    cursor: default; /* Устанавливаем курсор по умолчанию */
+    color: black;
+}
+
+/* Логотип */
+.logo {
+    margin-left: 30px;
+    margin-right: 30px;
+}
+
+.logo img {
+    width: calc(var(--index) * 4);
+    height: calc(var(--index) * 4);
+    object-fit: contain;
+}
+
+
+.logo-img {
+    transition: transform 0.3s ease; /* Плавный переход для трансформации */
+}
+
+.logo-img:hover {
+    transform: rotate(-10deg); /* Поворот против часовой стрелки на 5 градусов */
+}
+
+/* Навигация */
+nav {
+    display: flex;
+    align-items: center; /* Центрирует элементы по вертикали */
+    justify-content: flex-end; /* Выравнивает элементы по правому краю */
+    position: relative; /* Убедитесь, что позиционирование не влияет на размещение */
+    padding: 20px; /* Убедитесь, что паддинг адекватен */
+    margin-right: 1.5%;
+    z-index: 10; /* Чтобы обеспечить правильный порядок наложения */
+}
+
+.nav-but button {
+    margin: calc(var(--index) * 0.6);
+    padding: 10px 10px;
+    background-color: rgba(255, 255, 255, 0.3); /* Полупрозрачный фон */
+    color: #001020; /* Цвет текста */
+    border: none;
+    border-radius: var(--rad);
+    font-size: calc(var(--index) * 0.7);
+    font-style: italic;
+    cursor: pointer;
+    transition: background-color 0.3s, opacity 0.3s; /* Добавлено плавное изменение opacity */
+}
+
+.nav-but button:hover {
+    background-color: rgba(255, 255, 255, 0.5); /* Более прозрачный фон при наведении */
+    opacity: 0.9; /* Меняем прозрачность при наведении для эффекта */
+}
+
+/* Dropdown стили */
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-button {
+    border: none;
+    border-radius: var(--rad);
+    text-align: center;
+    transition: background-color 0.3s;
+}
+
+.dropdown-content {
+    max-height: 0; /* Начальная высота — 0 */
+    width: 100%;
+    overflow: hidden;
+    text-align: center;
+    opacity: .8;
+    position: absolute;
+    background-color: rgba(255, 255, 255, 0.3); /* Полупрозрачный фон */
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+    border-radius: var(--rad);
+    transition: max-height 1s ease, opacity 0.35s ease; /* Плавный переход */
+}
+
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    border-radius: 5px;
+    margin-bottom: 8px; /* Отступ между пунктами */
+    background-color: rgba(255, 255, 255, 0.3); /* Полупрозрачный фон для каждого элемента */
+}
+
+.dropdown-content a:hover {
+    background-color: #ddd; /* Оставим прежний эффект при наведении */
+}
+
+/* Раскрытие при наведении на dropdown */
+.dropdown:hover .dropdown-content {
+    max-height: 500px; /* Достаточно большое значение высоты для раскрытия */
+    opacity: 1;
+}
+
+
+/* Слои с фоном */
+.layer {
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    background-size: cover;
+    background-position: center;
+    filter: brightness(0.9);
+}
+
+/* Анимация при прокрутке */
+.layers_sea_src {
+    transform: translate3d(0, calc(var(--scrollTop) / 1.5), 0);
+    will-change: transform;
+}
+
+.layers_sky {
+    transform: translate3d(0, calc(var(--scrollTop) / 1.55), 0);
+    will-change: transform;
+}
+
+.layers_earth {
+    transform: translate3d(0, calc(var(--scrollTop) / 1.55), 0);
+    will-change: transform;
+}
+
+.layers_sea_3 {
+    transform: translate3d(0, calc(var(--scrollTop) / 1.6), 0);
+    will-change: transform;
+}
+
+.layers_sea_2 {
+    transform: translate3d(0, calc(var(--scrollTop) / 1.65), 0);
+    will-change: transform;
+}
+
+.layers_sea_1 {
+    transform: translate3d(0, calc(var(--scrollTop) / 1.7), 0);
+    will-change: transform;
+}
+
+/* Основные стили для страницы */
+body {
+    background-color: #001020;
+    color: var(--primary_text);
+}
+
+header {
+    /* Стили для заголовка страницы */
+    position: relative;
+}
+
+/*
+header::after{
+    content:'';
+    position: absolute;
+    z-index: 100;
+    width: 100%;
+    height: calc(var(--index) * 3);
+    background-image: url(../static/img/main-fons/pho-p_exports_whale/fon.png);
+    background-size: cover;
+    background-repeat: repeat;
+    background-position: center;
+    bottom: calc(var(--index) * -3);
+}
+*/
+
+
+
+.main-article {
+    height: 100vh;
+    display: flex;
+    overflow: hidden;
+    position: relative;
+    flex-direction: column; /* Для расположения содержимого вертикально */
+    align-items: center; /* Центрирование по горизонтали */
+    z-index: 2;
+}
+
+.whale-part {
+    position: absolute; /* Или оставьте, как есть */
+    top: 0; /* Можно отрегулировать начальную позицию */
+}
+
+
+
+.layers_tail_whale {
+    transform: translate3d(0, calc(var(--scrollTop) / 25), 0);
+    will-change: transform;
+}
+.layers_second_part_of_belly {
+    transform: translate3d(0, calc(var(--scrollTop) / 14), 0);
+    will-change: transform;
+}
+
+.layers_first_part_of_belly {
+    transform: translate3d(0, calc(var(--scrollTop) / 20), 0);
+    will-change: transform;
+}
+
+.layers_else_whale {
+    transform: translate3d(0, calc(var(--scrollTop) / 11), 0);
+    will-change: transform;
+}
+
+.main-article_content {
+    display:flex;
+    flex-direction:column;
+    position: relative; /* Устанавливаем относительное позиционирование */
+    z-index: 3; /* Поднимаем выше остальных элементов */
+    max-width: calc(var(--index) * 45);
+    transform: translate3d(0, calc(var(--scrollTop) / 25), 0);
+    will-change: transform;
+}
+
+.main-article_header {
+
+    color: var(--text_icons); /* Цвет заголовка, можно изменить */
+    text-transform: uppercase;
+    text-align: center; /* Центрируем текст */
+
+    font-size: calc(var(--index) * 1.8);
+    letter-spacing: calc(var(--index) / 1.5);
+    margin-top: 4vh;
+    margin-bottom: 2vh;
+    will-change: transform;
+}
+
+.main-article_paragraph {
+
+    color: var(--text_icons); /* Цвет текста, можно изменить */
+    font-size: calc(var(--index) * 0.8);
+    letter-spacing: calc(var(--index) / 30);
+    will-change: transform;
+}
+
+footer {
+    background-color: var(--body_color);
+    color: var(--text_icons);
+}
+
+/*.main-article::after{
+    content:'';
+    position: absolute;
+    z-index: 100;
+    width: 100%;
+    height: calc(var(--index) * 5);
+    background-image: url(../static/img/main-fons/pho-p_exports_whale/fon.png);
+    background-size: cover;
+    background-repeat: repeat;
+    background-position: center;
+    bottom: calc(var(--index) * -5);
+}*/
+
+.layers_footer{
+    height: 100vh;
+    display: flex;
+    overflow: hidden;
+    flex-direction: column; /* Для расположения содержимого вертикально */
+    z-index: 2;
+}
+
+.footer_content {
+    display: flex;
+    position: relative; /* Устанавливаем относительное позиционирование */
+    flex-direction: row; /* Для расположения содержимого вертикально */
+    justify-content: space-between;
+
+    margin:0% 2%;
+    z-index: 3; /* Поднимаем выше остальных элементов */
+    transform: translate3d(0, calc(var(--scrollTop) / 40), 0);
+    will-change: transform;
+}
+
+.left_footer_date{
+    margin:10% 0%;
+}
+
+.right_footer_date{
+    margin:10% 0%;
+}
+
+.info {
+    display: flex;
+    position: relative; /* Устанавливаем относительное позиционирование */
+    justify-content: center; /* Выравнивает элементы по правому краю */
+    text-align: center; /* Центрируем текст */
+
+    z-index: 3; /* Поднимаем выше остальных элементов */
+    margin-top: calc(var(--index) * 1.2);
+    max-width: calc(var(--index) * 32);
+    max-height: calc(var(--index) * 30);
+    top: calc(var(--index) * 1.5);
+    bottom: calc(var(--index) * .9);
+
+    color: var(--text_icons); /* Цвет текста, можно изменить */
+    font-size: calc(var(--index) * 1.5);
+    letter-spacing: calc(var(--index) / 30);
+    
+    transform: translate3d(0, calc(var(--scrollTop) / 40), 0);
+    will-change: transform;
+}
+
+.footer_paragraph_right {
+    display: flex;
+    position: relative; /* Устанавливаем относительное позиционирование */
+    flex-direction: column; /* Для расположения содержимого вертикально */
+
+    color: var(--text_icons); /* Цвет заголовка, можно изменить */
+    text-transform: uppercase;
+
+    font-size: calc(var(--index) * 1.8);
+    letter-spacing: calc(var(--index) / 1.5);
+    margin-top: 4vh;
+
+    cursor: default;
+
+    will-change: transform;
+}
+
+.footer_paragraph_left {
+
+    color: var(--text_icons); /* Цвет заголовка, можно изменить */
+    text-transform: uppercase;
+
+    font-size: calc(var(--index) * 1.8);
+    letter-spacing: calc(var(--index) / 1.5);
+    margin-top: 4vh;
+    margin-bottom: 2vh;
+
+    cursor: default;
+
+    will-change: transform;
+}
+
+.layers_man_src {
+    transform: translate3d(0, calc(var(--scrollTop) / 40), 0);
+    will-change: transform;
+}
+
+
+.layers_man_dark_version {
+    transform: translate3d(0, calc(var(--scrollTop) / 30), 0);
+    will-change: transform;
+}
+
+.layers_back_rocks {
+    transform: translate3d(0, calc(var(--scrollTop) / 30), 0);
+    will-change: transform;
+}
+
+.layers_front_rocks {
+    transform: translate3d(0, calc(var(--scrollTop) / 30), 0);
+    will-change: transform;
+}
+
+.layers_face {
+    transform: translate3d(0, calc(var(--scrollTop) / 1200), 0);
+    will-change: transform;
+
+}
+
+.copy {
+    position: absolute; /* Устанавливаем относительное позиционирование */
+
+    margin:0% 2%;
+    z-index: 3; /* Поднимаем выше остальных элементов */
+    color: var(--text_icons); /* Цвет заголовка, можно изменить */
+    text-transform: uppercase;
+
+    bottom:calc(var(--index) * 1.1);
+    left:32.5%;
+
+    font-size: calc(var(--index) * 1.1);
+    letter-spacing: calc(var(--index) / 8);
+    margin-top: 4vh;
+
+    opacity: 0.7;
+}
+
+.copy_time {
+    position: absolute; /* Устанавливаем относительное позиционирование */
+
+    margin:0% 2%;
+    z-index: 4; /* Поднимаем выше остальных элементов */
+    color: var(--text_icons); /* Цвет заголовка, можно изменить */
+    text-transform: uppercase;
+
+    bottom:calc(var(--index) * 2.7);
+    left:25%;
+
+    font-size: calc(var(--index) * 0.9);
+    letter-spacing: calc(var(--index) / 8);
+    margin-top: 4vh;
+
+    opacity: 0.7;
+}
+
+
+/*
+.content {
+    will-change: transform;
+
+}
+
+.main_container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+*/
+
+
